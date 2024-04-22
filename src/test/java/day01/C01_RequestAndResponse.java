@@ -66,8 +66,7 @@ public class C01_RequestAndResponse {
         System.out.println("Connection = " + connaction);
 
 //        -----------------------------------------------
-
-
+        //Date headers
         String date = response.header("Date");
         System.out.println("date = " + date);
 //        ---------------------------------------------------------------
