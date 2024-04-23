@@ -1,7 +1,11 @@
 package day01;
 
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
+
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.*;
 
 public class C05_BodyAssertionWithHamcrest {
 
@@ -30,16 +34,21 @@ public class C05_BodyAssertionWithHamcrest {
         String url = "https://jsonplaceholder.typicode.com/todos";
 
 //        2. Set the expected data
-
+        Response response = given().when().get(url);
+//    response.prettyPrint();
 
 //        3. Send the request and get the response
-
-
 //        4. Do Assertion
+        response
+                .then()
+                .statusCode(200)
+                .contentType(ContentType.JSON)
 
-        //hasSize() method checks this list's number of element
-        //hasItem() method checks the existence of one single element in a list
-        //hasItems() method checks existence of multiple elements in a list
+                .body("id", hasSize(200))//hasSize() method checks this list's number of element
+
+                .body("title", hasItem("quis eius est sint explicabo"))//hasItem() method checks the existence of one single element in a list
+
+                .body("userId", hasItems(7, 2, 9));//hasItems() method checks existence of multiple elements in a list
 
     }
 
