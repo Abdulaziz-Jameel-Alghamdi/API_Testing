@@ -50,7 +50,7 @@ public class C02HeaderAssertions {
 */
         //method 2
 
-    Response response = given().when().get(url);
+        Response response = given().when().get(url);
         response.prettyPrint();
 
         response
@@ -58,17 +58,17 @@ public class C02HeaderAssertions {
                 .statusCode(200)
                 .contentType(ContentType.JSON)
                 .statusLine("HTTP/1.1 200 OK")
-                .header("Connection" , "keep-alive");
+                .header("Connection", "keep-alive");
 
         // method 3
 
-       int statusCode = response.statusCode();
-        Assert.assertEquals(statusCode , 200);
+        int statusCode = response.statusCode();
+        Assert.assertEquals(statusCode, 200);
 
         String statusLine = response.statusLine();
-        Assert.assertEquals(statusLine,"HTTP/1.1 200 OK");
+        Assert.assertEquals(statusLine, "HTTP/1.1 200 OK");
 
-       String contenttype = response.contentType();
-       Assert.assertTrue(contenttype.equals(ContentType.JSON));
+        String contenttype = response.contentType();
+        Assert.assertTrue(contenttype.equals(ContentType.JSON));
     }
 }
