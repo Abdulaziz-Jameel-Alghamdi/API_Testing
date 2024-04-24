@@ -20,7 +20,7 @@ public class C09_GroovyLanguage extends JsonPlaseHolderBaseUrl {
     When
          I send GET Request to the URL
     Then
-         1)Status code is 200
+             1)Status code is 200
          2)Print all ids greater than 190 on the console
            Assert that there are 10 ids greater than 190
          3)Print all 'completeds' whose ids are less than 5 on the console

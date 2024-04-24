@@ -1,4 +1,4 @@
-package day01.HW_Day01;
+package HW.HW_Day01;
 
 import io.restassured.response.Response;
 import io.restassured.response.ResponseBody;
