@@ -34,7 +34,8 @@ public class HW1 extends HomeWork {
 //      User send GET Request to the URL
 
         spes.pathParams("first", "api"
-                , "second", "users", "thrid", 2);
+                , "second", "users",
+                    "thrid", 2);
 
         Response response = given(spes).when().get("{first}/{second}/{thrid}");
         response.prettyPrint();
@@ -46,7 +47,6 @@ public class HW1 extends HomeWork {
                 .body("data.first_name", equalTo("Janet"))
                 .body("data.last_name", equalTo("Weaver"))
                 .body("support.text", equalTo("To keep ReqRes free, contributions towards server costs are appreciated!"));
-
 
 
     }
