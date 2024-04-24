@@ -1,15 +1,18 @@
-package day01;
+package Day02;
 
+import BaseUrls.RestFullBaseUrl;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.*;
+import static org.testng.AssertJUnit.assertTrue;
 
-public class C06_QueryParameters {
 
-        /*
+public class C07_RequestSpecification extends RestFullBaseUrl {
+
+  /*
     Given
        https://restful-booker.herokuapp.com/booking
     When
@@ -17,36 +20,39 @@ public class C06_QueryParameters {
     Then
        Status code is 200
     And
-       Among the data, there should be someone whose first name is "john" and last name is "smith"
+       Among the data, there should be someone whose first name is "John" and last name is "Smith"
 */
 
     @Test
     public void queryParametersTest() {
 
 //        1. Set the URL
-        String url = "https://restful-booker.herokuapp.com/booking?firstname=John&lastname=Smith";
+        spes.pathParam("first", "booking")
+                .queryParams("firstname", "John"
+                        , "lastname", "Smith");
+
+
 //        2. Set the expected data
 
 //        3. Send the request and get the response
-        Response response = given().when().get(url);
+        Response response = given(spes).when().get("{first}");
         response.prettyPrint();
 //        4. Do Assertion
+
         //1st way:
 
         response
                 .then()
                 .statusCode(200);
 
-        String responseSTring = response.asString();
-        Assert.assertTrue(responseSTring.contains("bookingid"));
-
+        String responseStr = response.asString();
+        assertTrue(responseStr.contains("bookingid"));
 
         //2nd way:
-
         response
                 .then()
                 .statusCode(200)
-                .body(containsString("bookingid"));
-
+                .body(containsString("bookingid"))
+                .body("bookingid", hasSize(greaterThan(0)));
     }
 }
