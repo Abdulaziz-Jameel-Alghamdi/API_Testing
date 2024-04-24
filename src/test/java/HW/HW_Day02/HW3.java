@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class HW3 extends HomeWork3 {
@@ -42,17 +43,21 @@ public class HW3 extends HomeWork3 {
         response.then().statusCode(200);
 //        2)Print all pantone_values
 
-        String pantoneValues = response.jsonPath().getString("{it.data}.pantone_value");
+        String pantoneValues = response.jsonPath().getString("data.pantone_value");
         System.out.println("Pantone Values: " + pantoneValues);
 
         //        3)Print all ids greater than 3 on the console
 //        Assert that there are 3 ids greater than 3
-        List<Integer> idgreterThan3 = json.getList("findAll{it.data}.id");
+        List<Integer> idgreterThan3 = json.getList("data.findAll{it. id > 3}.id");
         System.out.println("idgreterThan3 = " + idgreterThan3);
-        assertTrue(idgreterThan3.size() > 3);
-//        4)Print all names whose ids are less than 3 on the console
+        assertTrue(idgreterThan3.size() >= 3, "ff");
+
+        //        4)Print all names whose ids are less than 3 on the console
 //        Assert that the number of names whose ids are less than 3 is 2
 
+        List<Integer> idlessThan3 = json.getList("data.findAll{it. id < 3}.id");
+        System.out.println("idlessThan3 = " + idlessThan3);
+        assertEquals(idlessThan3.size(), 2);
 
     }
 
