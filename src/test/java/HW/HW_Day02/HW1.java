@@ -35,7 +35,7 @@ public class HW1 extends HomeWork {
 
         spes.pathParams("first", "api"
                 , "second", "users",
-                    "thrid", 2);
+                "thrid", 2);
 
         Response response = given(spes).when().get("{first}/{second}/{thrid}");
         response.prettyPrint();
