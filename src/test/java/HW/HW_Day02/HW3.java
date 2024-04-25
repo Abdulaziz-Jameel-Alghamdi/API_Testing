@@ -46,11 +46,11 @@ public class HW3 extends HomeWork3 {
         String pantoneValues = response.jsonPath().getString("data.pantone_value");
         System.out.println("Pantone Values: " + pantoneValues);
 
-        //        3)Print all ids greater than 3 on the console
-//        Assert that there are 3 ids greater than 3
+//3)Print all ids greater than 3 on the console
+//Assert that there are 3 ids greater than 3
         List<Integer> idgreterThan3 = json.getList("data.findAll{it. id > 3}.id");
         System.out.println("idgreterThan3 = " + idgreterThan3);
-        assertTrue(idgreterThan3.size() >= 3, "ff");
+        assertTrue(idgreterThan3.size() >= 3, "Assert that there are 3 ids greater than 3");
 
         //        4)Print all names whose ids are less than 3 on the console
 //        Assert that the number of names whose ids are less than 3 is 2
