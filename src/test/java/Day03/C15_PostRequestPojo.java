@@ -51,9 +51,9 @@ public class C15_PostRequestPojo extends JsonPlaseHolderBaseUrl {
         JsonPlaseHolderPojo actualData = response.as(JsonPlaseHolderPojo.class);
 
         assertEquals(201, response.statusCode());
-        assertEquals(actualData.getUserId(),payLoad.getUserId()   );
-        assertEquals(actualData.getTitle(),payLoad.getTitle()    );
-        assertEquals( actualData.getCompleted(),payLoad.getCompleted());
+        assertEquals(actualData.getUserId(), payLoad.getUserId());
+        assertEquals(actualData.getTitle(), payLoad.getTitle());
+        assertEquals(actualData.getCompleted(), payLoad.getCompleted());
 
 
     }
