@@ -13,7 +13,7 @@ public class JsonPlaseHolderBaseUrl {
     public void setUp() {
 
         spes = new RequestSpecBuilder()
-                .setBaseUri("https://restful-booker.herokuapp.com")
+                .setBaseUri("https://jsonplaceholder.typicode.com")
                 .setContentType(ContentType.JSON)
                 .build();
 
