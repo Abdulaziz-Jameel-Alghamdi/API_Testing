@@ -64,6 +64,8 @@ And
         assertEquals(expectedTodo.get("id"), id);
         assertEquals(expectedTodo.get("completed"), completed);
 
+        //-----------------------------------------------------------------------------------------------------------
+
         // 2nd way
         Object actualTodo = json.getList("findAll{it.id==4}").get(0);
         System.out.println("actualTodo = " + actualTodo);
