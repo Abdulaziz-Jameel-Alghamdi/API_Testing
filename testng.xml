@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/abdul/IdeaProjects/API_Testing/src/test/java/Day07/C31_CreateBooking.java">
+        <classes>
+            <class name="Day07.C31_CreateBooking">
+            </class>
+            <class name="Day07.C32_GetBooking">
+            </class>
+            <class name="Day07.C33_UpdateBooking">
+            </class>
+            <class name="Day07.C34_UpdateBookingBYPach">
+            </class>
+            <class name="Day07.C35_DeleteBooking">
+            </class>
+            <class name="Day07.C36_GetBookingNegative">
+            </class>
+        </classes>
+    </test>
+</suite>

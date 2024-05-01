@@ -5,7 +5,10 @@ import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import org.testng.annotations.BeforeMethod;
 
-public class petStoreBaseUrl {
+import static Utilities.AuthenticationRestful.getToken;
+
+public class CreateBooking {
+
 
     protected RequestSpecification spes;
 
@@ -13,7 +16,8 @@ public class petStoreBaseUrl {
     public void setUp() {
 
         spes = new RequestSpecBuilder()
-                .setBaseUri("https://petstore.swagger.io/v2")
+                .setBaseUri("https://restful-booker.herokuapp.com")
+                .addHeader("Cookie", "token=" +getToken())
                 .setContentType(ContentType.JSON)
                 .build();
 
@@ -21,3 +25,4 @@ public class petStoreBaseUrl {
 
 
 }
+
